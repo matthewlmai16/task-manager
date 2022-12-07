@@ -5,36 +5,33 @@
 {% block title %}
     Project Detail
 {% endblock title %}
-
 {% block content %}
     <main>
         <div>
-            <h1>
-                My Tasks
-            </h1>
+            <h1>My Tasks</h1>
             {% if my_task|length == 0 %}
-            <p>You have no tasks</p>
+                <p>You have no tasks</p>
             {% else %}
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Start date</th>
-                        <th>Due date</th>
-                        <th>Is completed</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for task in my_task %}
+                <table>
+                    <thead>
                         <tr>
-                            <td>{{ task.name }}</td>
-                            <td>{{ task.start_date }}</td>
-                            <td>{{ task.due_date }}</td>
-                            <td>{{ task.is_completed|yesno }}</td>
+                            <th>Name</th>
+                            <th>Start date</th>
+                            <th>Due date</th>
+                            <th>Is completed</th>
                         </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {% for task in my_task %}
+                            <tr>
+                                <td>{{ task.name }}</td>
+                                <td>{{ task.start_date }}</td>
+                                <td>{{ task.due_date }}</td>
+                                <td>{{ task.is_completed|yesno }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             {% endif %}
         </div>
     </main>
